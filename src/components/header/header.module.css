@@ -1,0 +1,47 @@
+.header {
+    max-width: 1280px;
+    height: 540px;
+    margin: 0 auto;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items:center;
+    overflow: hidden;
+}
+
+.title {
+    color:#fff;
+    font-size: 70px;
+    margin: 0;
+}
+
+.subtitle {
+    color:#fff;
+    font-size: 40px;
+    margin: 0;
+    margin-top: 20px;
+    cursor: pointer;
+    transition: all ease-in-out .4s;
+}
+
+.subtitle:hover {
+    color:rgba(150, 150, 150, 0.8);
+}
+
+.background {
+    position: absolute;
+    width: 1700px;
+    height: inherit;
+    top: 0;
+    left: -120px;
+    z-index: -1;
+    background-color: #000;
+    opacity: 0.1;
+}
+
+.background__image {
+    width: 100%;
+    height: inherit;
+    object-fit: cover;
+}

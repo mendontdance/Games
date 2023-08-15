@@ -1,0 +1,12 @@
+.modal {
+    position: fixed;
+    box-sizing:border-box;
+    min-height: 400px;
+    min-width: 500px;
+    top: 20%;
+    left: 32%;
+    background-color: #fff;
+    color: black;
+    border-radius: 15px;
+    padding: 40px;
+}

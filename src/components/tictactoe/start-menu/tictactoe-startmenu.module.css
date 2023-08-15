@@ -1,0 +1,87 @@
+.game__start {
+    box-sizing: border-box;
+    width: 320px;
+    border: 1px solid white;
+    height: 400px;
+    color: white;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    padding-top: 20px;
+}
+
+.section{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 10px;
+}
+
+.text__container {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    border-radius:10px;
+    margin-bottom: 12px;
+}
+
+.gamer {
+    font-size: 20px;
+    margin-top: 40px;
+    margin-bottom: 20px;
+    color: #fff
+}
+
+
+.title {
+    font-size: 20px;
+    font-weight: 500;
+}
+
+.count {
+    font-size: 20px;
+}
+
+.td {
+    display: flex;
+    margin: 0;
+    padding: 5px;
+    text-align: center;
+}
+
+.button {
+    background: #1d1c22;
+    border: none;
+    padding: 15px;
+    font-size: 20px;
+    color: white;
+    cursor: pointer;
+    border-radius: 10px;
+    transition: all ease-in-out .2s;
+    margin-bottom: 20px;
+}
+
+.button:last-child {
+    margin-bottom: 0;
+}
+
+.button:hover {
+    background-color: rgba(150, 150, 150, 0.8);
+    color: black
+}
+
+.first__row {
+   max-width: 80px;
+}
+
+.turn {
+    background-color: grey;
+}
+
+.winner {
+    background-color:rgb(167, 46, 19);
+}
+
+.loser {
+    background-color: #1d1c22;
+    opacity: .5;
+}

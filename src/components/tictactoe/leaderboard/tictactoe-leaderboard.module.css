@@ -1,0 +1,22 @@
+.leaders {
+    box-sizing: border-box;
+    width: 320px;
+    border: 1px solid white;
+    height: 400px;
+    color: white;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    padding-top: 20px;
+}
+
+.text {
+    font-size: 20px;
+    margin: 0 auto;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.text:first-child {
+    margin-top: 0px;
+}

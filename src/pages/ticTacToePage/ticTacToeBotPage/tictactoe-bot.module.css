@@ -1,0 +1,46 @@
+.section {
+    display: flex;
+    flex-direction: column;
+    padding-top: 30px;
+}
+
+.main {
+    max-width: 1280px;
+    margin: 0 auto;
+}
+
+.container {
+    display: flex;
+    position: relative;
+    min-height: 400px;
+    gap: 100px;
+    justify-content: space-around;
+    justify-content: center;
+}
+
+.title {
+    margin: 0;
+    font-size: 60px;
+    color: white;
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.text {
+    font-size: 20px;
+    margin: 0 auto;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.text:first-child {
+    margin-top: 0px;
+}
+
+.button:last-child {
+    margin-top: 40px;
+}
+
+.button__inactive:last-child {
+    margin-top: 40px;
+}
