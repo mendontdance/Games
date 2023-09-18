@@ -1,9 +1,10 @@
 import { Routes, Route } from 'react-router-dom';
-import { HomePage, TicTacToeGuestPage, TicTacToePage, TicTacToeHotseatPage, TicTacToeGamePage, TicTacToeBotPage,TicTacToeBotGamePage } from './pages';
+import { HomePage, TicTacToeGuestPage, TicTacToePage, TicTacToeHotseatPage, TicTacToeGamePage, TicTacToeBotPage, TicTacToeBotGamePage } from './pages';
 import React from 'react'
 import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { useLocation } from 'react-router-dom';
+import { Menu } from './components/menu/menu';
 
 
 export default function App() {
@@ -20,6 +21,8 @@ export default function App() {
   }, [redirectToInputMenu])
 
   return (
+    <>
+      <Menu />
       <Routes location={location}>
         <Route path="/" element={<HomePage />} />
         <Route path="/tic-tac-toe" element={<TicTacToePage />} />
@@ -29,5 +32,6 @@ export default function App() {
         <Route path="/tic-tac-toe/guest-mode/bot" element={<TicTacToeBotPage />} />
         <Route path="/tic-tac-toe/guest-mode/bot/game" element={<TicTacToeBotGamePage />} />
       </Routes>
+    </>
   );
 }

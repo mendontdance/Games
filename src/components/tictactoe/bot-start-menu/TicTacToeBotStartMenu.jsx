@@ -2,34 +2,29 @@ import styles from './tictactoe-botstartmenu.module.css';
 import { useSelector } from 'react-redux';
 import React from 'react';
 import { useDispatch } from 'react-redux';
-import {  RESTART_GAME } from '../../../services/actions/ticTacToeAction';
+import { BACK_TO_INITIAL_BOT_GAME, GAME_IS_PLAYING, RESTART_GAME } from '../../../services/actions/ticTacToeAction';
 import { useNavigate } from 'react-router-dom';
 
-export function TicTacToeBotStartMenu() {
+export function TicTacToeBotStartMenu({ onClick }) {
 
     const dispatch = useDispatch();
     const navigate = useNavigate();
 
     const state = useSelector(store => store.ticTacToe);
-    const turnFirstPlayer = state.player === 0 ? styles.turn : null;
-    const turnbotPlayer = state.player === 1 ? styles.turn : null;
-    const winnerFirstPlayer = state.gameOver & state.player !== 0 ? styles.winner : false
-    const winnerBotPlayer = state.gameOver & state.player !== 1 ? styles.winner : false
-    const loseFirstPlayer = state.gameOver & state.player === 0 ? styles.loser : false
-    const loseBotPlayer = state.gameOver & state.player === 1 ? styles.loser : false
+    const turnFirstPlayer = state.player === 0 ? styles.turn : styles.loser;
+    const turnbotPlayer = state.player === 1 ? styles.turn : styles.loser;
+    const winnerFirstPlayer = state.gameOver && state.player !== 0 ? styles.winner : false
+    const winnerBotPlayer = state.gameOver && state.player !== 1 ? styles.winner : false
+    console.log(state.player);
 
-    const onClick = () => {
-        dispatch({
-            type: RESTART_GAME,
-            position: Array(9).fill(null),
-            gameOver: false,
-            player: 1
-        })
-    }
-
+    console.log(state.gameOver);
     const handleClickBackToMenu = () => {
         navigate('/tic-tac-toe/guest-mode/bot')
+        dispatch({
+            type: BACK_TO_INITIAL_BOT_GAME
+        })
     }
+    console.log(state.player);
 
     return (
         <div className={styles.game__start}>
@@ -42,7 +37,7 @@ export function TicTacToeBotStartMenu() {
                         Количество побед
                     </p>
                 </div>
-                <div className={`${styles.text__container} ${loseFirstPlayer || winnerFirstPlayer || turnFirstPlayer}`}>
+                <div className={`${styles.text__container} ${winnerFirstPlayer} ${turnFirstPlayer}`}>
                     <p className={`${styles.gamer} ${styles.td} ${styles.first__row}`}>
                         {state.firstPlayer.status}
                     </p>
@@ -50,7 +45,7 @@ export function TicTacToeBotStartMenu() {
                         {state.firstPlayer.value}
                     </p>
                 </div>
-                <div className={`${styles.text__container} ${loseBotPlayer || winnerBotPlayer || turnbotPlayer}`}>
+                <div className={`${styles.text__container} ${winnerBotPlayer} ${turnbotPlayer}`}>
                     <p className={`${styles.gamer} ${styles.td} ${styles.first__row}`}>
                         {state.botPlayer.status}
                     </p>

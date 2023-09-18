@@ -5,7 +5,8 @@ import { TicTacToeStartMenu } from '../../../components/tictactoe/start-menu/Tic
 import { TicTacToeLeaderboard } from '../../../components/tictactoe/leaderboard/TicTacToeLeaderboard';
 import { TicTacToeTable } from '../../../components/tictactoe/table/TicTacToeTable';
 import { useDispatch, useSelector } from "react-redux";
-import { GAME_OVER, WIN_FIRST_PLAYER, WIN_SECOND_PLAYER, SET_FIRST_PLAYER, SET_SECOND_PLAYER } from "../../../services/actions/ticTacToeAction";
+import { GAME_OVER, WIN_FIRST_PLAYER, WIN_SECOND_PLAYER, SET_FIRST_PLAYER, SET_SECOND_PLAYER, DRAW } from "../../../services/actions/ticTacToeAction";
+import React from 'react';
 
 export function TicTacToeGamePage() {
 
@@ -69,17 +70,20 @@ export function TicTacToeGamePage() {
 
         if (!wonPlayer(store.firstPlayer.type, store.firstPlayer.status) && !wonPlayer(store.secondPlayer.type, store.secondPlayer.status)) {
             if (store.position.every(elem => elem !== null)) {
-                showGameOver('draw');
+                showGameOver();
+                dispatch({
+                    type: DRAW,
+                    draw: true
+                })
             }
         }
     }
 
     return (
         <>
-            <Menu />
             <main className={styles.main}>
                 <section className={styles.section}>
-                    {chooseTitle}
+                    {(store.draw && <p className={styles.title}>{`Ничья`}</p>) || chooseTitle}
                     <div className={styles.container}>
                         <TicTacToeStartMenu />
                         <TicTacToeTable handleClick={handleClick} data={store.position} />

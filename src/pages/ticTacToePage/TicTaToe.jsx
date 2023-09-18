@@ -14,7 +14,6 @@ export function TicTacToePage() {
     
     return (
         <>
-            <Menu />
             <section className={styles.section}>
                 <div className={styles.container}>
                     <button className={styles.button} onClick={handleClickGuestMode}>Играть как гость</button>

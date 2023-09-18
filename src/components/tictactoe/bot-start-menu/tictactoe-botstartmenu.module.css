@@ -77,11 +77,12 @@
     background-color: grey;
 }
 
-.winner {
-    background-color:rgb(167, 46, 19);
-}
 
-.loser {
+/* .loser {
     background-color: #1d1c22;
     opacity: .5;
+} */
+
+.winner {
+    background-color:rgb(167, 46, 19);
 }

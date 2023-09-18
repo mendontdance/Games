@@ -2,7 +2,7 @@ import styles from './tictactoe-startmenu.module.css';
 import { useSelector } from 'react-redux';
 import React from 'react';
 import { useDispatch } from 'react-redux';
-import { BACK_TO_MENU, INITIAL_STATE, RESTART_GAME } from '../../../services/actions/ticTacToeAction';
+import { BACK_TO_MENU, DRAW, INITIAL_STATE, RESTART_GAME } from '../../../services/actions/ticTacToeAction';
 import { useNavigate } from 'react-router-dom';
 
 export function TicTacToeStartMenu() {
@@ -13,10 +13,10 @@ export function TicTacToeStartMenu() {
     const state = useSelector(store => store.ticTacToe);
     const turnFirstPlayer = state.player === 0 ? styles.turn : null;
     const turnSecondPlayer = state.player === 1 ? styles.turn : null;
-    const winnerFirstPlayer = state.gameOver & state.player !== 0 ? styles.winner : false
-    const winnerSecondPlayer = state.gameOver & state.player !== 1 ? styles.winner : false
-    const loseFirstPlayer = state.gameOver & state.player === 0 ? styles.loser : false
-    const loseSecondPlayer = state.gameOver & state.player === 1 ? styles.loser : false
+    const winnerFirstPlayer = state.gameOver && state.player !== 0 && !state.draw ? styles.winner : false
+    const winnerSecondPlayer = state.gameOver && state.player !== 1 && !state.draw ? styles.winner : false
+    const loseFirstPlayer = state.gameOver && state.player === 0 && !state.draw ? styles.loser : false
+    const loseSecondPlayer = state.gameOver && state.player === 1 && !state.draw ? styles.loser : false
 
     const onClick = () => {
         dispatch({
@@ -24,6 +24,10 @@ export function TicTacToeStartMenu() {
             position: Array(9).fill(null),
             gameOver: false,
             player: Math.floor(Math.random() * 2)
+        })
+        dispatch({
+            type: DRAW,
+            draw: false
         })
     }
 

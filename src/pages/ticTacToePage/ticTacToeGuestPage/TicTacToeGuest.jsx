@@ -22,7 +22,6 @@ export function TicTacToeGuestPage() {
 
     return (
         <>
-            <Menu />
             <main className={styles.main}>
                 <section className={styles.section}>
                     <p className={styles.title}>Крестики-Нолики</p>

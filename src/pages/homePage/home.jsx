@@ -10,7 +10,6 @@ export function HomePage() {
 
   return (
     <>
-      <Menu />
       <Header />
       <Main />
       <Footer />

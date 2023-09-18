@@ -84,6 +84,7 @@
     cursor:pointer;
     transition: all .3s ease-in-out;
     opacity: 1;
+    text-decoration: none;
 }
 
 .nickname:hover {

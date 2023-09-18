@@ -4,7 +4,6 @@ import { useSelector } from 'react-redux';
 export function TicTacToeRow({ id, handleClick, data }) {
 
     const asdf = useSelector(store => store.ticTacToe.position)
-    console.log(asdf);
     return (
         <tr>
             <td onClick={handleClick} className={styles.td} id={`td_${id[0]}`}>{asdf[id[0] - 1] || null}</td>

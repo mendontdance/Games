@@ -1,5 +1,5 @@
 import styles from './tictactoe-botmenu.module.css'
-import { INITIAL_STATE, GAME_START, FIRST_PLAYER_STATUS, REDIRECT_TO_INPUT_MENU, SET_BOT_NAME } from '../../../services/actions/ticTacToeAction'
+import { INITIAL_STATE, GAME_START, FIRST_PLAYER_STATUS, REDIRECT_TO_INPUT_MENU, SET_BOT_NAME, DRAW } from '../../../services/actions/ticTacToeAction'
 import { useDispatch, useSelector } from 'react-redux'
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
@@ -14,11 +14,9 @@ export function TicTacToeBotMenu() {
         dispatch({
             type: INITIAL_STATE
         })
-        navigate('/tic-tac-toe/guest-mode/bot');
+        navigate('/tic-tac-toe/guest-mode/');
     }
-
-    const [state, setState] = React.useState('Выберите сложность')
-
+    
     const a = () => {
         dispatch({
             type: SET_BOT_NAME,
@@ -64,6 +62,10 @@ export function TicTacToeBotMenu() {
         if (check) {
             navigate('/tic-tac-toe/guest-mode/bot/game')
         }
+        dispatch({
+            type: DRAW,
+            draw: false
+        })
     }
 
 
@@ -77,6 +79,9 @@ export function TicTacToeBotMenu() {
                 Введите имя игрока
             </p>
             <input className={styles.input} type="text" placeholder="Введите никнейм" id="input_1" onInput={onInput_1} />
+            <p className={styles.text}>
+                Выберите сложность бота
+            </p>
             <div className={styles.level} onClick={() => setShow(!show)}>{store.botPlayer.status || 'Выберите сложность'}
                 {show && <div className={styles.level__list}>
                     <div className={styles.option} onClick={a}>Легкий</div>
