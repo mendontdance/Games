@@ -120,10 +120,12 @@ export const TicTacToeBotGamePage = () => {
             type: GAME_IS_PLAYING,
             gamePlaying: true
         })
-        dispatch({
-            type: DRAW,
-            draw: false
-        })
+        if (store.gamePlaying) {
+            dispatch({
+                type: DRAW,
+                draw: false
+            })
+        }
     }, [dispatch])
 
 
@@ -146,9 +148,7 @@ export const TicTacToeBotGamePage = () => {
                             type: GAME_IS_PLAYING,
                             gamePlaying: false
                         })
-                    }
-                    if (store.position.every(elem => elem !== null)) {
-                        console.log('this is the end');
+                    } else if (store.position.every(elem => elem !== null && store.gamePlaying)) {
                         dispatch({
                             type: GAME_IS_PLAYING,
                             gamePlaying: false
