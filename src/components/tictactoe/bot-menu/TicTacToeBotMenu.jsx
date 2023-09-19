@@ -85,8 +85,8 @@ export function TicTacToeBotMenu() {
             <div className={styles.level} onClick={() => setShow(!show)}>{store.botPlayer.status || 'Выберите сложность'}
                 {show && <div className={styles.level__list}>
                     <div className={styles.option} onClick={a}>Легкий</div>
-                    <div className={styles.option} onClick={b}>Средний</div>
-                    <div className={styles.option} onClick={c}>Сложный</div>
+                    {/* <div className={styles.option} onClick={b}>Средний</div>
+                    <div className={styles.option} onClick={c}>Сложный</div> */}
                 </div>}
             </div>
             <button className={check ? styles.button : styles.button_inactive} type="button" onClick={onClick}>

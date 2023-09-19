@@ -71,7 +71,6 @@ export const TicTacToeBotGamePage = () => {
         }
         if (!wonPlayer(store.firstPlayer.type, store.firstPlayer.status) && !wonBot(store.botPlayer.type, store.botPlayer.status)) {
             if (store.position.every(elem => elem !== null)) {
-                console.log('this is the end');
                 dispatch({
                     type: GAME_IS_PLAYING,
                     gamePlaying: false
@@ -130,7 +129,6 @@ export const TicTacToeBotGamePage = () => {
 
 
     React.useEffect(() => {
-        console.log(store.player);
         if (store.gamePlaying && !store.gameOver) {
             setTimeout(() => {
                 if (store.player === store.botPlayer.id) {

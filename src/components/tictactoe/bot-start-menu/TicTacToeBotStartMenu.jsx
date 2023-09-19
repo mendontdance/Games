@@ -15,16 +15,13 @@ export function TicTacToeBotStartMenu({ onClick }) {
     const turnbotPlayer = state.player === 1 ? styles.turn : styles.loser;
     const winnerFirstPlayer = state.gameOver && state.player !== 0 ? styles.winner : false
     const winnerBotPlayer = state.gameOver && state.player !== 1 ? styles.winner : false
-    console.log(state.player);
 
-    console.log(state.gameOver);
     const handleClickBackToMenu = () => {
         navigate('/tic-tac-toe/guest-mode/bot')
         dispatch({
             type: BACK_TO_INITIAL_BOT_GAME
         })
     }
-    console.log(state.player);
 
     return (
         <div className={styles.game__start}>
